@@ -36,7 +36,7 @@ Route::get('send-mail', function () {
         'body' => 'This is for testing email using smtp'
     ];
    
-    \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\MyTestMail($details));
+    \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\UsersMail($details));
    
     dd("Email is Sent.");
 });

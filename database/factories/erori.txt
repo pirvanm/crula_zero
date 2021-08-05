@@ -21,3 +21,9 @@
 
 
       php artisan key:generate.
+
+
+    EROARE 5 
+
+    Error
+Class 'App\Mail\MyTestMail' not found
