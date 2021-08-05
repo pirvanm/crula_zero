@@ -13,3 +13,11 @@
 
     #2 eroare  
       Class 'Database\Factories\Str' not found
+
+
+      #4 
+
+      No application encryption key has been specified.
+
+
+      php artisan key:generate.
