@@ -30,8 +30,9 @@ class GameController extends Controller
         // $games = Game::toSql();
 
 
-          $games = Game::where('id',2)->get();
-
+       //   $games = Game::where('id',2)->get();
+         //   where (id = 2 )
+         $games = Game::where('id','>',2)->get();
         //   $orders = Order::search('Star Trek')
         //   ->where('user_id', 1)->get();
 
