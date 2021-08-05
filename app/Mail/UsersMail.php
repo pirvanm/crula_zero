@@ -30,6 +30,12 @@ class UsersMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+
+        return
+         $this->subject('Pirvan Marian')
+                    ->view('emails.myTestMail');
+                    // view metoda care specifica 
+                    // ce html trimite
+        //return $this->view('view.name');
     }
 }
