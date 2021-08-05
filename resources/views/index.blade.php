@@ -21,13 +21,19 @@
           <td colspan="2">Action</td>
         </tr>
     </thead>
+    <div>Marian m-ai uitatttt...
+    <a href="{{ route('games.create')}}" 
+              class="btn btn-primary">Creaza Joc</a></td>
+    </div>
     <tbody>
         @foreach($games as $game)
         <tr>
             <td>{{$game->id}}</td>
             <td>{{$game->name}}</td>
             <td>{{$game->price}}</td>
-            <td><a href="{{ route('games.edit', $game->id)}}" class="btn btn-primary">Edit</a></td>
+            <td>
+              <a href="{{ route('games.edit', $game->id)}}" 
+              class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('games.destroy', $game->id)}}" method="post">
                   @csrf
