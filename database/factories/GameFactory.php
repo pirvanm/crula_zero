@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
+use App\Models\Game;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GameFactory extends Factory
@@ -12,7 +12,7 @@ class GameFactory extends Factory
      *
      * @var string
      */
-    protected $model = Post::class;
+    protected $model = Game::class;
 
     /**
      * Define the model's default state.

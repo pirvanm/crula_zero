@@ -1,0 +1,11 @@
+
+
+    Class 'App\Models\Post' not found
+
+  at C:\laragon\www\crula_zero\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:628
+    624▕     public function newModel(array $attributes = [])
+    625▕     {
+    626▕         $model = $this->modelName();
+    627▕
+  ➜ 628▕         return new $model($attributes);
+    629▕     }
