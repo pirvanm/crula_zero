@@ -1,0 +1,16 @@
+Cum creezi un user rapid...
+
+#1 pornesti tinker 
+
+php artisan tinker
+
+#2 in tinker, in terminalul sau poti folosi asta : 
+
+$user = new App\User();
+$user->password = Hash::make('the-password-of-choice');
+$user->email = 'the-email@example.com';
+$user->name = 'My Name';
+$user->save();
+
+#3 cum inchizi tinker
+exit()
