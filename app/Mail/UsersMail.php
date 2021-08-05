@@ -33,7 +33,7 @@ class UsersMail extends Mailable
 
         return
          $this->subject('Pirvan Marian')
-                    ->view('emails.myTestMail');
+                    ->view('emails.mesaj');
                     // view metoda care specifica 
                     // ce html trimite
         //return $this->view('view.name');
