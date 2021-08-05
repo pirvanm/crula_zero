@@ -30,7 +30,10 @@ class GameController extends Controller
         // $games = Game::toSql();
 
 
-          $games = Game::get();
+          $games = Game::where('id',2)->get();
+
+        //   $orders = Order::search('Star Trek')
+        //   ->where('user_id', 1)->get();
 
          // $games = Game::first();
          //dd('afisare tablou', $games);
