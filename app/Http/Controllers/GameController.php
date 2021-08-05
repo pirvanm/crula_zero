@@ -33,10 +33,12 @@ class GameController extends Controller
        //   $games = Game::where('id',2)->get();
          //   where (id = 2 )
          $games = Game::where('id','>',2)->get();
-         https://laravel.com/docs/8.x/scout#where-clauses
+         //https://laravel.com/docs/8.x/scout#where-clauses
         //   $orders = Order::search('Star Trek')
         //   ->where('user_id', 1)->get();
-
+  //      $games = Game::search('A')->paginate();
+ 
+      //  $orders = Order::search('Star Trek')->paginate();
          // $games = Game::first();
          //dd('afisare tablou', $games);
             // returneaza index.blade.php si trimite dinamic datele din array-ul ce a fost 
