@@ -25,7 +25,7 @@ class GameFactory extends Factory
      
             return [
                 'name' => $this->faker->name(),
-                'price' => Str::random(2),
+                'price' =>2,
             ];
        
     }
