@@ -9,3 +9,7 @@
     627▕
   ➜ 628▕         return new $model($attributes);
     629▕     }
+
+
+    #2 eroare  
+      Class 'Database\Factories\Str' not found
