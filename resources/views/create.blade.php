@@ -24,11 +24,11 @@
           <div class="form-group">
               @csrf
               <label for="country_name">Game Name:</label>
-              <input type="text" class="form-control" name="nameeee"/>
+              <input type="text" class="form-control" name="name"/>
           </div>
           <div class="form-group">
               <label for="cases">Price :</label>
-              <input type="text" class="form-control" name="pricess"/>
+              <input type="text" class="form-control" name="price"/>
           </div>
           <button type="submit" class="btn btn-primary">Add Game</button>
       </form>
