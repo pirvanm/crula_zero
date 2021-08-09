@@ -15,38 +15,10 @@ class GameController extends Controller
      */
     public function index()
     {
-       // dd('index');
-       // dd metoda ce apartine doar de laravel
-       // opreste executia scriptului 
-       //poate fi folosit oridunde pentru a 
-       // "deduce fluxul aplicatiei"
-        // pentru a lua date din tabel game 
-        // $games = Game::all();
-
-        
-
-         // metoda toSql iti arata ce sql 
-         // este folosit in spate
-        // $games = Game::toSql();
-
-
-       //   $games = Game::where('id',2)->get();
-         //   where (id = 2 )
-         $games = Game::where('id','>',2)->get();
-         //https://laravel.com/docs/8.x/scout#where-clauses
-        //   $orders = Order::search('Star Trek')
-        //   ->where('user_id', 1)->get();
-  //      $games = Game::search('A')->paginate();
- 
-      //  $orders = Order::search('Star Trek')->paginate();
-         // $games = Game::first();
-         //dd('afisare tablou', $games);
-            // returneaza index.blade.php si trimite dinamic datele din array-ul ce a fost 
-         // compus de $games  folosind functia games
-         return view('index', compact('games'));
-         //
-         //return view( 'in ce fisier html se afiseaza')
-         // index.blade.php , compact( 'variabila de mai sus ')
+        // luam toate jocurile si le prezentam in pagina web
+         $games = Game::get();
+         
+         return view('games.index', compact('games'));
     }
 
     /**
@@ -57,7 +29,7 @@ class GameController extends Controller
     public function create()
     {
        // dd('metoda create');
-     return view('create');
+     return view('games.create');
     }
 
     /**
@@ -108,7 +80,7 @@ class GameController extends Controller
         $game = Game::findOrFail($id);
         // cauta jocul dupa id , daca nu gasesti id ul, da eroare
 
-        return view('edit', compact('game'));
+        return view('games.edit', compact('game'));
     }
 
     /**
