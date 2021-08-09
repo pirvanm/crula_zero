@@ -64,9 +64,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        $games = $category->games;
+        
+        return view('categories.edit', compact('category', 'games'));
     }
 
     /**
