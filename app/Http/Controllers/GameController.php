@@ -47,7 +47,7 @@ class GameController extends Controller
         // validam datele din formular, daca ceva nu e bine face redirect automat in pagina cu formularul, stocand si erorile de validare
         $request->validate(
               [
-            'name' => 'required|max:255', // name nu poate fi mai mare de 255 caractere (max:255 )
+            'name' => 'required|max:255|unique:games', // name nu poate fi mai mare de 255 caractere (max:255 )
             'price' => 'required|integer|between:10,100', // presupun ca price este un numar intreg ( regula integer ) intre 10 si 100 euro ( regula between:min, max), de exemplu.
             'category' => 'required|exists:categories,id' // regula exists:table,column verifica id-ul categoriei exista in tabelul de categorii
         ]);
