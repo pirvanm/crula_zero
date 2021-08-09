@@ -69,27 +69,17 @@ class GameController extends Controller
     public function store(Request $request)
     {
 
-        //$request->all()  il folosim 
-        // pentru a potrivit datele din formular 
-        // cu datele din controller 
-        //dd($request->all());
-       //dd('metoda store');
-       // validare in controlelr nu e best practice 
-          $validareDate = $request
-          ->validate(
+        // validam datele din formular, daca ceva nu e bine face redirect automat in pagina cu formularul, stocand si erorile de validare
+        $request->validate(
               [
-            'name' => 'required|max:255',
-            'price' => 'required',
+            'name' => 'required|max:255', // name nu poate fi mai mare de 255 caractere (max:255 )
+            'price' => 'required|integer|between:10,100', // presupun ca price este un numar intreg ( regula integer ) intre 10 si 100 euro ( regula between:min, max), de exemplu.
         ]);
-// am atribuite clasa game, care este un model 
-// iar modelului atribuit actiunea de crearea 
 
-        $show = Game::create($validareDate);
-        // populam tabelul cu datele luate din valdiareDate 
-   
-        // daca am trecut de validare 
-        // fa redirect catre ruta principalta 
-        // si afiseaza urmatorul mesaj folosind metoda with 
+        // stocam un baza de date noul joc adaugat ( adica inca un rand in tabelul cu jocuri )
+        $show = Game::create($request->only('name', 'price'));
+
+        // facem redirect in pagina principala cu jocuri si stocam in sesiune mesajul de succes.
         return redirect('/games')
         ->with('success', 'Game is successfully saved');
 }    
