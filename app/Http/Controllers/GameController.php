@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // permite recunoasterea metodelor din clasa Games
 use App\Models\Game;
+use App\Models\Category;
 
 class GameController extends Controller
 {
@@ -17,7 +18,7 @@ class GameController extends Controller
     {
         // luam toate jocurile si le prezentam in pagina web
          $games = Game::get();
-         
+
          return view('games.index', compact('games'));
     }
 
@@ -28,8 +29,10 @@ class GameController extends Controller
      */
     public function create()
     {
-       // dd('metoda create');
-     return view('games.create');
+        // atunci cand adaugam un joc afisam si o lista de categorii pentru a adauga jocul in una din aceste categorii
+        $categories = Category::get();
+
+        return view('games.create', compact('categories'));
     }
 
     /**
@@ -46,10 +49,14 @@ class GameController extends Controller
               [
             'name' => 'required|max:255', // name nu poate fi mai mare de 255 caractere (max:255 )
             'price' => 'required|integer|between:10,100', // presupun ca price este un numar intreg ( regula integer ) intre 10 si 100 euro ( regula between:min, max), de exemplu.
+            'category' => 'required|exists:categories,id' // regula exists:table,column verifica id-ul categoriei exista in tabelul de categorii
         ]);
 
         // stocam un baza de date noul joc adaugat ( adica inca un rand in tabelul cu jocuri )
-        $show = Game::create($request->only('name', 'price'));
+        $game = Game::create($request->only('name', 'price'));
+
+        // attach the category to the game so if we want to get the categories of a game, we simply write $game->cateogries; and we are given a collection with all categories
+        $game->categories()->attach($request->only('category'));
 
         // facem redirect in pagina principala cu jocuri si stocam in sesiune mesajul de succes.
         return redirect('/games')

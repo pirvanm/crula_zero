@@ -44,7 +44,7 @@ class CategoriesController extends Controller
 
         $category = Category::create($request->only('name'));
 
-        return back()->with('success', 'The category has been created.');
+        return redirect('/categories')->with('success', 'The category has been created.');
     }
 
     /**

@@ -31,11 +31,19 @@
                   <label for="name" class="form-label">Game Name:</label>
                   <input type="text" class="form-control" name="name"/>
               </div>
-              <div class="form-group" class="form-label">
-                  <label for="price">Price</label>
+              <div class="form-group">
+                  <label for="price"  class="form-label">Price</label>
                   <input type="text" class="form-control" name="price"/>
               </div>
-             <div class="form-group mt-2">
+              <div class="form-group">
+                <label for="category"  class="form-label">Category</label>
+                  <select name="category" class="form-control">
+                    @foreach ($categories as $category)
+                      <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                  </select>
+              </div>
+             <div class="form-group mt-4">
              <button type="submit" class="btn btn-primary">Add Game</button>
              </div>
           </form>
