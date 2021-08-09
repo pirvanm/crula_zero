@@ -16,26 +16,25 @@
     <thead>
         <tr>
           <td>ID</td>
-          <td>Game Name</td>
-          <td>Game Price</td>
+          <td>Name</td>
+          <td>Created at</td>
           <td colspan="2">Action</td>
         </tr>
     </thead>
-    <div>
-    <a href="{{ route('games.create')}}" 
-              class="btn btn-primary">Creaza Joc</a></td>
+    <a href="{{ route('categories.create')}}" 
+              class="btn btn-primary">Adauga o noua categorie</a></td>
     </div>
     <tbody>
-        @foreach($games as $game)
+        @foreach($categories as $category)
         <tr>
-            <td>{{$game->id}}</td>
-            <td>{{$game->name}}</td>
-            <td>{{$game->price}}</td>
+            <td>{{$category->id}}</td>
+            <td>{{$category->name}}</td>
+            <td>{{$category->created_at}}</td>
             <td>
-              <a href="{{ route('games.edit', $game->id)}}" 
+              <a href="{{ route('categories.edit', $category->id)}}" 
               class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('games.destroy', $game->id)}}" method="post">
+                <form action="{{ route('categories.destroy', $category->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
