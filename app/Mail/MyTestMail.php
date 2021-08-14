@@ -1,31 +1,28 @@
 <?php
-
+  
 namespace App\Mail;
-
-
-
-use App\Models\User as UM;
+  
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-
-class Hello extends Mailable
+  
+class MyTestMail extends Mailable
 {
     use Queueable, SerializesModels;
-    
-    public $user;
-    
+  
+    public $details;
+  
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(UM $user)
+    public function __construct($details)
     {
-        $this->user = $user;
+        $this->details = $details;
     }
-    
+  
     /**
      * Build the message.
      *
@@ -33,6 +30,7 @@ class Hello extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.hello');
+        return $this->subject('Mail from ItSolutionStuff.com')
+                    ->view('mails.myTestMail');
     }
 }

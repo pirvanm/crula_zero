@@ -50,8 +50,22 @@ Route::get('/dashboard', function () {
 
 $user = Auth::loginUsingId(1);
 
-Route::get('testemail', function () use ($user)  {
-    Mail::to($user)->send(new Hello($user));
+// Route::get('testemail', function () use ($user)  {
+//     Mail::to($)->send(new Hello($user));
+// });
+
+
+Route::get('send-mail', function () {
+   
+    $details = [
+        'title' => 'Mail from LevelCoding.com',
+        'body' => 'p'
+    ];
+   
+    \Mail::to('pirvan.marian@gmail.com')->send(new \App\Mail\MyTestMail($details));
+   
+    dd("Email is Sent.");
 });
+
 
 require __DIR__.'/auth.php';
