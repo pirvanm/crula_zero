@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('games', GameController::class);
+Route::get('/search/', 'GameController@search')->name('search');
 Route::resource('categories', CategoriesController::class);
 
 // face acelasi lucru cu route::resoruce doar ca mai multe liniii 

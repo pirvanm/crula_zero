@@ -8,6 +8,12 @@
 </style>
 <div class="uper">
   <div class="mb-2">
+    <div>
+    <form action="{{ route('search') }}" method="GET">
+    <input type="text" name="search" required/>
+    <button type="submit btn-info">Search</button>
+</form>
+</div>
   <a href="{{ route('games.create')}}" 
                 class="btn btn-primary">Creaza Joc</a>
   </div>

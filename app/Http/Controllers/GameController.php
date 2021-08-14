@@ -22,6 +22,21 @@ class GameController extends Controller
          return view('games.index', compact('games'));
     }
 
+
+    public function search(Request $request){
+        // Get the search value from the request
+        $search = $request->input('search');
+    
+        // Search in the title and body columns from the posts table
+        $games = Game::query()
+            ->where('name', 'LIKE', "%{$search}%")
+          //  ->orWhere('body', 'LIKE', "%{$search}%")
+            ->get();
+    
+        // Return the search view with the resluts compacted
+        return view('games.index', compact('games'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
