@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Mail\Hello;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,16 +30,22 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('send-mail', function () {
+// Route::get('send-mail', function () {
    
-    $details = [
-        'title' => 'Mail from ItSolutionStuff.com',
-        'body' => 'This is for testing email using smtp'
-    ];
+//     $details = [
+//         'title' => 'Mail from ItSolutionStuff.com',
+//         'body' => 'This is for testing email using smtp'
+//     ];
    
-    \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\UsersMail($details));
+//     \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\UsersMail($details));
    
-    dd("Email is Sent.");
+//     dd("Email is Sent.");
+// });
+
+
+
+Route::get('testemail', function () {
+    Mail::to(['pirvan.marian@gmail.com'])->send(new Hello);
 });
 
 require __DIR__.'/auth.php';

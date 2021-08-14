@@ -1,12 +1,11 @@
-
 <?php
 
-namespace AppMail;
+namespace App\Mail;
 
-use IlluminateBusQueueable;
-use IlluminateMailMailable;
-use IlluminateQueueSerializesModels;
-use IlluminateContractsQueueShouldQueue;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
 
 class Hello extends Mailable
 {
@@ -29,6 +28,6 @@ class Hello extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.hello');
     }
 }
