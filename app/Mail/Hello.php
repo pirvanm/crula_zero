@@ -1,11 +1,12 @@
+
 <?php
 
-namespace App\Mail;
+namespace AppMail;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
+use IlluminateBusQueueable;
+use IlluminateMailMailable;
+use IlluminateQueueSerializesModels;
+use IlluminateContractsQueueShouldQueue;
 
 class Hello extends Mailable
 {
