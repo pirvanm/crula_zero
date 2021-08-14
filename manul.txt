@@ -14,3 +14,5 @@ $user->save();
 
 #3 cum inchizi tinker
 exit()
+Cum trimiti un mail ?
+https://vegibit.com/how-to-send-email-to-new-users/
