@@ -44,8 +44,14 @@ Route::get('/dashboard', function () {
 
 
 
-Route::get('testemail', function () {
-    Mail::to(['pirvan.marian@gmail.com'])->send(new Hello);
+// Route::get('testemail', function () {
+//     Mail::to(['pirvan.marian@gmail.com'])->send(new Hello);
+// });
+
+$user = Auth::loginUsingId(1);
+
+Route::get('testemail', function () use ($user)  {
+    Mail::to($user)->send(new Hello($user));
 });
 
 require __DIR__.'/auth.php';
