@@ -10,6 +10,8 @@ use Illuminate\Queue\SerializesModels;
 class Hello extends Mailable
 {
     use Queueable, SerializesModels;
+    
+    public $user; 
 
     /**
      * Create a new message instance.
@@ -18,7 +20,9 @@ class Hello extends Mailable
      */
     public function __construct()
     {
-        //
+        
+    $this->user = $user;
+
     }
 
     /**
