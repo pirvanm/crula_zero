@@ -123,8 +123,7 @@ class GameController extends Controller
         ]);
         // cauta jocul ce are in interorul sau id -ul respectiva ,daca are
         // actualizeaza cu urmatoarele valori
-        // Game::whereId($id)::
-        // ->update($validatedData);
+         Game::whereId($id)->update($validatedData);
         //  ce este o medota statica?
 
         // aceea metoda care pune ::
