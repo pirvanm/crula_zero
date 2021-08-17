@@ -64,11 +64,21 @@ class GameController extends Controller
               [
             'name' => 'required|max:255|unique:games', // name nu poate fi mai mare de 255 caractere (max:255 )
             'price' => 'required|integer|between:10,100', // presupun ca price este un numar intreg ( regula integer ) intre 10 si 100 euro ( regula between:min, max), de exemplu.
-            'category' => 'required|exists:categories,id' // regula exists:table,column verifica id-ul categoriei exista in tabelul de categorii
+            'category' => 'required|exists:categories,id', // regula exists:table,column verifica id-ul categoriei exista in tabelul de categorii
+            'image' => 'required|image:jpeg,png,jpg',
         ]);
 
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->storeAs('public/images', $imageName);
+
         // stocam un baza de date noul joc adaugat ( adica inca un rand in tabelul cu jocuri )
-        $game = Game::create($request->only('name', 'price'));
+        $game = new Game();
+        $game->name= $request->name;
+        $game->price= $request->price;
+        //$game->publisher = $request->publisher;
+      //  $game->releasedate = $request->releasedate;
+        $game->image = $imageName;
+        $game->save();
 
         // attach the category to the game so if we want to get the categories of a game, we simply write $game->cateogries; and we are given a collection with all categories
         $game->categories()->attach($request->only('category'));

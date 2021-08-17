@@ -56,6 +56,8 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 CREATE TABLE IF NOT EXISTS `games` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+      `video` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,

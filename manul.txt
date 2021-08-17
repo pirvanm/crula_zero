@@ -16,3 +16,6 @@ $user->save();
 exit()
 Cum trimiti un mail ?
 https://vegibit.com/how-to-send-email-to-new-users/
+
+///  sync files 
+php artisan storage:link

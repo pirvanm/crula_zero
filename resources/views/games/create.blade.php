@@ -25,7 +25,7 @@
                   <p class="mb-0">{{ session('success') }}</p>
               </div>
           @endif
-          <form method="post" action="{{ route('games.store') }}">
+          <form method="post" action="{{ route('games.store') }}"  enctype="multipart/form-data">
               <div class="form-group">
                   @csrf
                   <label for="name" class="form-label">Game Name:</label>
@@ -35,6 +35,10 @@
                   <label for="price"  class="form-label">Price</label>
                   <input type="text" class="form-control" name="price"/>
               </div>
+              <div class="form-group">
+                    <label for="price" class="form-label">Image</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
               <div class="form-group">
                 <label for="category"  class="form-label">Category</label>
                   <select name="category" class="form-control">

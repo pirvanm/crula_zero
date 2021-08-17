@@ -38,6 +38,8 @@
               <td>{{$game->id}}</td>
               <td>{{$game->name}}</td>
               <td>{{$game->price}}</td>
+              <img class="card-img-top" src="{{ Storage::url('images/' . $game->image) }}" alt="Card image cap">
+              <td>{{$game->image}}</td>
               <td>
                 <a href="{{ route('games.edit', $game->id)}}" 
                 class="btn btn-primary">Edit</a></td>
