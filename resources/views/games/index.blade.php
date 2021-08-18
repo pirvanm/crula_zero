@@ -38,7 +38,16 @@
               <td>{{$game->id}}</td>
               <td>{{$game->name}}</td>
               <td>{{$game->price}}</td>
-              <img class="card-img-top" src="{{ Storage::url('images/' . $game->image) }}" alt="Card image cap">
+              <!-- <img class="card-img-top" src="{{ Storage::url('images/' . $game->image) }}" alt="Card image cap"> -->
+              {{$game->video}}
+
+              <audio controls>
+  <source src="{{ Storage::url('videos/' . $game->video) }}" type="audio/mpeg"> 
+  </audio>
+              <audio src="">
+              <audio src="{{ Storage::url('videos/' . $game->video) }}" >
+
+</audio>
               <td>{{$game->image}}</td>
               <td>
                 <a href="{{ route('games.edit', $game->id)}}" 

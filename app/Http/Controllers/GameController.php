@@ -26,6 +26,8 @@ class GameController extends Controller
     public function search(Request $request){
         // Get the search value from the request
         $search = $request->input('search');
+
+        dd('search ul'. $search);
     
         // Search in the title and body columns from the posts table
         $games = Game::query()
@@ -65,19 +67,24 @@ class GameController extends Controller
             'name' => 'required|max:255|unique:games', // name nu poate fi mai mare de 255 caractere (max:255 )
             'price' => 'required|integer|between:10,100', // presupun ca price este un numar intreg ( regula integer ) intre 10 si 100 euro ( regula between:min, max), de exemplu.
             'category' => 'required|exists:categories,id', // regula exists:table,column verifica id-ul categoriei exista in tabelul de categorii
-            'image' => 'required|image:jpeg,png,jpg',
+           // 'image' => 'required|image:jpeg,png,jpg',
+            'video' => 'required|mimes:mp4,mp3,ogx,oga,ogv,ogg,webm'
+            
         ]);
 
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->storeAs('public/images', $imageName);
+       // $imageName = time() . '.' . $request->image->extension();
+        $videoName = time() . '.' . $request->video->extension();
 
+       // $request->image->storeAs('public/images', $imageName);
+        $request->video->storeAs('public/videos', $videoName);
         // stocam un baza de date noul joc adaugat ( adica inca un rand in tabelul cu jocuri )
         $game = new Game();
         $game->name= $request->name;
         $game->price= $request->price;
         //$game->publisher = $request->publisher;
       //  $game->releasedate = $request->releasedate;
-        $game->image = $imageName;
+        //$game->image = $imageName;
+        $game->video = $videoName;
         $game->save();
 
         // attach the category to the game so if we want to get the categories of a game, we simply write $game->cateogries; and we are given a collection with all categories

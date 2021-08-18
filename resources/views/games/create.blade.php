@@ -35,9 +35,15 @@
                   <label for="price"  class="form-label">Price</label>
                   <input type="text" class="form-control" name="price"/>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                     <label for="price" class="form-label">Image</label>
                     <input type="file" name="image" class="form-control">
+                </div> -->
+
+
+                <div class="form-group">
+                    <label for="video" class="form-label">Video</label>
+                    <input type="file" name="video" class="form-control">
                 </div>
               <div class="form-group">
                 <label for="category"  class="form-label">Category</label>

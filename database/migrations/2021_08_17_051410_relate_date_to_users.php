@@ -29,6 +29,7 @@ class RelateDateToUsers extends Migration
     {
         Schema::table('games', function (Blueprint $table) {
             $table->string('image');
+            $table->string('video');
         });
     }
 }
