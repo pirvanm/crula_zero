@@ -1,13 +1,12 @@
-
 <?php
-
-namespace AppHttpControllers;
+namespace App\Http\Controllers\Auth;
 
 use IlluminateHttpRequest;
+use App\Http\Controllers\Controller;
 use AppUser;
 use AppMailHello;
 
-class RegistrationController extends Controller
+class RegisteredUserController extends Controller
 {
     public function __construct()
     {
@@ -16,7 +15,7 @@ class RegistrationController extends Controller
     
     public function create()
     {
-        return view('registration.create');
+        return view('auth.register');
     }
     
     public function store()
